@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://capphsw4vuijd"]
 
 [ext_resource type="Texture2D" uid="uid://b5wqsixkothn8" path="res://Assets/Sprites/HUD/Dialog/FacesetBox.png" id="1_l03fe"]
-[ext_resource type="Script" uid="uid://d3yagcef5xwqk" path="res://Scripts/iventory_slot.gd" id="1_p1ara"]
+[ext_resource type="Script" uid="uid://d3yagcef5xwqk" path="res://Scripts/Inventario/iventory_slot.gd" id="1_p1ara"]
 [ext_resource type="Theme" uid="uid://b25hr5qb3tkjw" path="res://Resources/UI/theme.tres" id="3_fwi3b"]
 
 [node name="InventorySlot" type="VBoxContainer"]

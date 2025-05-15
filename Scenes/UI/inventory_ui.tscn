@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://onrx87q2e86p"]
 
-[ext_resource type="Script" uid="uid://d11sjhrxi5a6e" path="res://Scripts/inventory_ui.gd" id="1_p83af"]
+[ext_resource type="Script" uid="uid://d11sjhrxi5a6e" path="res://Scripts/Inventario/inventory_ui.gd" id="1_p83af"]
 [ext_resource type="Texture2D" uid="uid://bsebtgxg25ark" path="res://Assets/Sprites/HUD/Dialog/DialogBoxFaceset.png" id="2_hcmni"]
 [ext_resource type="Theme" uid="uid://b25hr5qb3tkjw" path="res://Resources/UI/theme.tres" id="3_o62ck"]
 
