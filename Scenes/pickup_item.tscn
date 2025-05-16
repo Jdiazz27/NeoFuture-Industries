@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cuhjdmsqi4di1" path="res://Scripts/Inventario/pickup_item.gd" id="1_3cdwf"]
 [ext_resource type="Resource" uid="uid://df1qg87tfwuem" path="res://Resources/gold_coin.tres" id="2_ws8k0"]
-[ext_resource type="Texture2D" uid="uid://eqodybklw0qj" path="res://2/Sprites/Items2/Weapons/Sword2/Sprite.png" id="3_fv6p2"]
-[ext_resource type="Shape2D" uid="uid://cp8loarn50d6" path="res://Resources/Weapons/Sword/sword_ground_collision_shape.tres" id="4_ws8k0"]
+[ext_resource type="Texture2D" uid="uid://dx4h05ntwakd5" path="res://2/Sprites/Items/Weapons/Sword2/SpriteInHand.png" id="3_fv6p2"]
+[ext_resource type="Shape2D" uid="uid://b76rpxnl5ivjx" path="res://Resources/Weapons/Sword/sword_weapon_item_collision_shape.tres" id="4_ws8k0"]
 
 [node name="PickUpItem" type="Area2D"]
 z_index = 1
@@ -17,5 +17,6 @@ stacks = 12
 texture = ExtResource("3_fv6p2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.17906e-07, 2.24394e-07)
+position = Vector2(0, 0.941177)
+scale = Vector2(1, 1)
 shape = ExtResource("4_ws8k0")

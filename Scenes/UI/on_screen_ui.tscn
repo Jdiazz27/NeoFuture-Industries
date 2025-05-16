@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byujm22yfx4xf"]
 
 [ext_resource type="PackedScene" uid="uid://bk417bjw5js2p" path="res://Scenes/UI/on_screen_equipment_slot.tscn" id="1_2in52"]
-[ext_resource type="Script" uid="uid://c630730mg4dwp" path="res://Scenes/UI/on_screen_ui.gd" id="1_ypqlq"]
+[ext_resource type="Script" uid="uid://c630730mg4dwp" path="res://Resources/on_screen_ui.gd" id="1_ypqlq"]
 
 [node name="OnScreenUI" type="CanvasLayer"]
 script = ExtResource("1_ypqlq")

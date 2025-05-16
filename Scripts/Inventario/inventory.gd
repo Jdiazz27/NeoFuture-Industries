@@ -15,7 +15,6 @@ var taken_inventory_slots_count = 0
 
 func _ready() -> void:
 	inventory_ui.equip_item.connect(on_item_equipped)
-	inventory_ui.drop_item_on_the_ground.connect(on_item_dropped)
 	# No conectar spell_slot_clicked porque ya no existe
 
 func _input(event: InputEvent) -> void:
@@ -64,50 +63,11 @@ func add_stackable_item_to_inventory(item: InventoryItem, stacks: int):
 func on_item_equipped(idx: int, slot_to_equip: String):
 	var item_to_equip = items[idx]
 	on_screen_ui.equip_item(item_to_equip, slot_to_equip)
-	combat_system.set_active_weapon(item_to_equip.weapon_item, slot_to_equip)
-	# No más check_magic_ui_visibility
 
-func on_item_dropped(idx: int):
-	clear_inventory_slot(idx)
-	eject_item_into_the_ground(idx)
-	# No más check_magic_ui_visibility
-
-func clear_inventory_slot(idx: int):
-	taken_inventory_slots_count -= 1
-	inventory_ui.clear_slot_at_index(idx)
-
-func eject_item_into_the_ground(idx: int):
-	var inventory_item_to_eject = items[idx]
-	var item_to_eject_as_pickup = PICKUP_ITEM_SCENE.instantiate() as PickUpItem
-	
-	item_to_eject_as_pickup.inventory_item = inventory_item_to_eject
-	item_to_eject_as_pickup.stacks = inventory_item_to_eject.stacks
-	
-	get_tree().root.add_child(item_to_eject_as_pickup)
-	
-	item_to_eject_as_pickup.disable_collision()
-	item_to_eject_as_pickup.global_position = get_parent().global_position
-	
-	var eject_direction = animated_sprite_2d.item_eject_direction
-	
-	if eject_direction.x == 0:
-		eject_direction.x = randf_range(-1, 1)
-	else:
-		eject_direction.y = randf_range(-1, 1)
-	
-	var eject_position = get_parent().global_position + Vector2(20, 20) * eject_direction
-	
-	var ejection_tween = get_tree().create_tween()
-	ejection_tween.set_trans(Tween.TRANS_BOUNCE)
-	ejection_tween.tween_property(item_to_eject_as_pickup, "global_position", eject_position, .2)
-	ejection_tween.finished.connect(func(): item_to_eject_as_pickup.enable_collision())
-	
-	if combat_system.right_weapon == inventory_item_to_eject.weapon_item:
-		combat_system.right_weapon = null
-		on_screen_ui.right_hand_slot.set_equipment_texture(null)
-	
-	if combat_system.left_weapon == inventory_item_to_eject.weapon_item:
-		combat_system.left_weapon = null
-		on_screen_ui.left_hand_slot.set_equipment_texture(null)
-		
-	items[idx] = null
+	var player = get_tree().get_first_node_in_group("player")
+	if player and slot_to_equip == "Right_Hand":
+		# Verifica si el arma es una escena instanciable
+		if item_to_equip.weapon_item is PackedScene:
+			var weapon_instance = item_to_equip.weapon_item.instantiate()
+			player.add_child(weapon_instance)  # mejor que añadirlo al root
+			player.weapon = weapon_instance
