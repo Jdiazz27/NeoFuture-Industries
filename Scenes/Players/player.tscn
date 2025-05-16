@@ -645,10 +645,10 @@ shape = SubResource("CircleShape2D_fkybt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-limit_left = -460
-limit_top = -150
-limit_right = 255
-limit_bottom = 280
+limit_left = -464
+limit_top = -208
+limit_right = 288
+limit_bottom = 304
 
 [node name="OnScreenUI" parent="." instance=ExtResource("7_t5hbk")]
 
