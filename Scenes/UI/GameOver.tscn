@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6ymrhewk8prn"]
+
+[ext_resource type="Texture2D" uid="uid://bpu553n3lj1d4" path="res://Resources/UI/gameOverBG.jpg" id="1_6pbke"]
+[ext_resource type="Script" uid="uid://kky8vknfvvae" path="res://Scenes/UI/game_over.gd" id="1_34bmr"]
+[ext_resource type="FontFile" uid="uid://dj2m2fyjbp7f0" path="res://Resources/UI/PressStart2P-Regular.ttf" id="2_34bmr"]
+[ext_resource type="Texture2D" uid="uid://cjf657ghxtbka" path="res://Resources/UI/Button BG.png" id="4_ielvo"]
+[ext_resource type="Script" uid="uid://cataq4osu8vdk" path="res://Scenes/UI/button.gd" id="5_bnh5c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wpfos"]
+font = ExtResource("2_34bmr")
+font_size = 60
+font_color = Color(1, 0.817699, 0.270796, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cf87c"]
+texture = ExtResource("4_ielvo")
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_34bmr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -50.0
+offset_right = 1820.0
+offset_bottom = 1194.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_6pbke")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 92.0
+offset_right = 618.0
+offset_bottom = 152.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_wpfos")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 485.0
+offset_right = 451.0
+offset_bottom = 545.0
+theme_override_fonts/font = ExtResource("2_34bmr")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_cf87c")
+text = "Volver a jugar"
+script = ExtResource("5_bnh5c")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
