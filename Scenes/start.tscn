@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://dn3uksd5mxxrv"]
 
 [ext_resource type="PackedScene" uid="uid://r28xvdwao1ik" path="res://Scenes/Players/player.tscn" id="1_3bxa3"]
-[ext_resource type="Texture2D" uid="uid://cimmk6uefv8ky" path="res://2/Sprites/Backgrounds2/Tilesets/apocalypse/Zombie Apocalypse Tileset Reference.png" id="2_rk01k"]
+[ext_resource type="Texture2D" uid="uid://cimmk6uefv8ky" path="res://Assets/Sprites/Backgrounds/Tilesets/apocalypse/Zombie Apocalypse Tileset Reference.png" id="2_rk01k"]
 [ext_resource type="AudioStream" uid="uid://d0et07uru83" path="res://Assets/music/264900__speedenza__desolate-wasteland-background.mp3" id="3_5ogh5"]
 [ext_resource type="Resource" uid="uid://bmdvusotbbmwi" path="res://Resources/Weapons/Sword/sword_inventory_item.tres" id="5_o3wvq"]
 [ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/pickup_item.tscn" id="5_rk01k"]
