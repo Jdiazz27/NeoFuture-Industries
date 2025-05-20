@@ -6,10 +6,10 @@ func _init() -> void:
 	collision_mask = 2
 
 func _ready() -> void:
-	connect("area_entered", Callable(self, "_on_area_entered"))
+	connect("area_entered", _on_area_entered)
 
-func _on_area_entered(hitbox: hit_box) -> void:
-	if hitbox == null:
-		return
-	if owner.has_method("take_damage"):
-		owner.take_damage(hitbox.damage)
+func _on_area_entered(area: Area2D) -> void:
+	if area is hit_box:
+		var padre = get_parent()
+		if padre.has_method("take_damage"):
+			padre.take_damage(area.damage)

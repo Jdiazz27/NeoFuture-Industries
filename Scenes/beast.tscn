@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0n5om0njv0xd"]
+
+[ext_resource type="Script" uid="uid://bqqnuj3g26lt6" path="res://Scripts/static_enemy.gd" id="1_3d5ct"]
+[ext_resource type="Texture2D" uid="uid://d4l4jx8pis77x" path="res://Assets/Sprites/Beast/Beast.png" id="2_wiudq"]
+[ext_resource type="Script" uid="uid://bhje1fej75go" path="res://Scripts/hurt_box.gd" id="3_n2oh3"]
+[ext_resource type="Script" uid="uid://cvvfhdokl4af3" path="res://Scripts/Enemigos/beastSprite2D.gd" id="4_n2oh3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q61u0"]
+size = Vector2(16.7619, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifgyv"]
+atlas = ExtResource("2_wiudq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mti8r"]
+atlas = ExtResource("2_wiudq")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q61u0"]
+atlas = ExtResource("2_wiudq")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wiudq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jixj0"]
+atlas = SubResource("CompressedTexture2D_wiudq")
+region = Rect2(120, 312, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0bji"]
+atlas = SubResource("CompressedTexture2D_wiudq")
+region = Rect2(96, 312, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujjcb"]
+atlas = SubResource("CompressedTexture2D_wiudq")
+region = Rect2(144, 312, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkuhp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifgyv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mti8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q61u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jixj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0bji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujjcb")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[node name="beast" type="Node2D"]
+script = ExtResource("1_3d5ct")
+
+[node name="hurt_box" type="Area2D" parent="."]
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(1.3125, 1.25)
+script = ExtResource("3_n2oh3")
+metadata/_custom_type_script = "uid://bhje1fej75go"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+position = Vector2(9.08263e-08, 2.38419e-07)
+shape = SubResource("RectangleShape2D_q61u0")
+
+[node name="beastSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(1.3125, 1.25)
+sprite_frames = SubResource("SpriteFrames_wkuhp")
+autoplay = "default"
+script = ExtResource("4_n2oh3")

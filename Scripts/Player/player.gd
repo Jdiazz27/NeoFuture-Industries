@@ -5,6 +5,7 @@ class_name Player
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
 @onready var inventory: Inventory = $Inventory
 @onready var weapon = $sword
+@onready var hit_box = $HitBox
 @onready var oxygenBar: TextureProgressBar = get_node("../CanvasLayer/oxygenBar")
 @onready var oxygenTimer: Timer = $OxygenTimer
 
@@ -29,7 +30,9 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta):
 	if Input.is_action_just_pressed("attack"):
-		weapon.play_attack()
+		hit_box.monitoring = true
+		await get_tree().create_timer(0.2).timeout
+		hit_box.monitoring = false
 
 func _ready():
 	add_to_group("player")
