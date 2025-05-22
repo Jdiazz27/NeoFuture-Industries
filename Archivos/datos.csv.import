@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c6xek8mer4ke7"
+
+[deps]
+
+files=["res://Archivos/datos.puntos.translation", "res://Archivos/datos.enemigos.translation", "res://Archivos/datos.monedas.translation", "res://Archivos/datos.basura.translation"]
+
+source_file="res://Archivos/datos.csv"
+dest_files=["res://Archivos/datos.puntos.translation", "res://Archivos/datos.enemigos.translation", "res://Archivos/datos.monedas.translation", "res://Archivos/datos.basura.translation"]
+
+[params]
+
+compress=true
+delimiter=0

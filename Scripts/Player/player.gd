@@ -8,6 +8,7 @@ class_name Player
 @onready var hit_box = $HitBox
 @onready var oxygenBar: TextureProgressBar = get_node("../CanvasLayer/oxygenBar")
 @onready var oxygenTimer: Timer = $OxygenTimer
+var main
 
 const SPEED = 5000.0
 var oxygen := 40
@@ -38,10 +39,12 @@ func _ready():
 	add_to_group("player")
 	oxygenBar.value = oxygen
 	oxygenTimer.start()
+	main = get_parent()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is PickUpItem:
 		inventory.add_item(area.inventory_item, area.stacks)
+		main.add("monedas_list", "moneda")
 		area.queue_free()
 
 func _on_oxygen_timer_timeout() -> void:
@@ -53,6 +56,18 @@ func _on_oxygen_timer_timeout() -> void:
 
 func die():
 	get_tree().change_scene_to_file("res://Scenes/UI/GameOver.tscn")
+	var ruta = "res://Archivos/datos.csv"
+	var dataScript = preload("res://Scripts/guardarDatos.gd")
+	dataScript = Datos.new()
+	
+	var data = main.getData()
+	print(data)
+	data = str(dataScript.buscarUltimaPartida()) + "," + ",".join(data)
+	print(data)
+	if FileAccess.file_exists(ruta):
+		dataScript.agregar_linea_csv(ruta, data)
+	else:
+		dataScript.crear_csv(ruta)
 
 func increase_oxygen(amount: int):
 	oxygen += amount

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d4l4jx8pis77x" path="res://Assets/Sprites/Beast/Beast.png" id="2_wiudq"]
 [ext_resource type="Script" uid="uid://bhje1fej75go" path="res://Scripts/hurt_box.gd" id="3_n2oh3"]
 [ext_resource type="Script" uid="uid://cvvfhdokl4af3" path="res://Scripts/Enemigos/beastSprite2D.gd" id="4_n2oh3"]
+[ext_resource type="Texture2D" uid="uid://8vet366ooj1o" path="res://Assets/Sprites/IndianaJones.png" id="4_w0bji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q61u0"]
 size = Vector2(16.7619, 16)
@@ -20,18 +21,16 @@ region = Rect2(0, 32, 16, 16)
 atlas = ExtResource("2_wiudq")
 region = Rect2(0, 48, 16, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wiudq"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jixj0"]
-atlas = SubResource("CompressedTexture2D_wiudq")
+atlas = ExtResource("4_w0bji")
 region = Rect2(120, 312, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w0bji"]
-atlas = SubResource("CompressedTexture2D_wiudq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujjcb"]
+atlas = ExtResource("4_w0bji")
 region = Rect2(96, 312, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujjcb"]
-atlas = SubResource("CompressedTexture2D_wiudq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tqsc"]
+atlas = ExtResource("4_w0bji")
 region = Rect2(144, 312, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wkuhp"]
@@ -55,10 +54,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_jixj0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w0bji")
+"texture": SubResource("AtlasTexture_ujjcb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ujjcb")
+"texture": SubResource("AtlasTexture_3tqsc")
 }, {
 "duration": 1.0,
 "texture": null
@@ -85,5 +84,6 @@ shape = SubResource("RectangleShape2D_q61u0")
 position = Vector2(1.19209e-07, 0)
 scale = Vector2(1.3125, 1.25)
 sprite_frames = SubResource("SpriteFrames_wkuhp")
+animation = &"hurt"
 autoplay = "default"
 script = ExtResource("4_n2oh3")
