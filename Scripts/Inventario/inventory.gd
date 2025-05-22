@@ -4,7 +4,7 @@ class_name Inventory
 
 @onready var inventory_ui: InventoryUI = $"../InventoryUI"
 @onready var on_screen_ui: OnScreenUI = $"../OnScreenUI"
-@onready var combat_system: CombatSystem = $"../CombatSystem"
+#@onready var combat_system: CombatSystem = $"../CombatSystem"
 @onready var animated_sprite_2d: AnimationController = $"../AnimatedSprite2D"
 var ListaEnlazada = preload("res://Scripts/ListaEnlazada.gd")
 
@@ -35,9 +35,9 @@ func add_stackable_item_to_inventory(item: InventoryItem, stacks: int):
 	var encontrado = false
 	
 	while actual != null:
-		if actual.item.name == item.name:
+		if actual.item != null and actual.item.name == item.name:
 			encontrado = true
-			# Verifica si hay espacio en la pila actual
+		# Verifica si hay espacio en la pila actual
 			if actual.item.stacks + stacks <= item.max_stacks:
 				actual.item.stacks += stacks
 				# Actualiza la UI aquí si tienes un índice o referencia al slot
@@ -61,7 +61,7 @@ func on_item_equipped(idx: int, slot_to_equip: String):
 	if item_to_equip == null:
 		return
 	on_screen_ui.equip_item(item_to_equip, slot_to_equip)
-	combat_system.set_active_weapon(item_to_equip.weapon_item, slot_to_equip)
+	#combat_system.set_active_weapon(item_to_equip.weapon_item, slot_to_equip)
 
 func on_item_dropped(idx: int):
 	var item_to_drop = get_item_at_index(idx)
@@ -100,13 +100,13 @@ func eject_item_into_the_ground(idx: int):
 	ejection_tween.tween_property(item_to_eject_as_pickup, "global_position", eject_position, 0.2)
 	ejection_tween.finished.connect(func(): item_to_eject_as_pickup.enable_collision())
 	
-	if combat_system.right_weapon == inventory_item_to_eject.weapon_item:
-		combat_system.right_weapon = null
-		on_screen_ui.right_hand_slot.set_equipment_texture(null)
-	
-	if combat_system.left_weapon == inventory_item_to_eject.weapon_item:
-		combat_system.left_weapon = null
-		on_screen_ui.left_hand_slot.set_equipment_texture(null)
+	#if combat_system.right_weapon == inventory_item_to_eject.weapon_item:
+		#combat_system.right_weapon = null
+		#on_screen_ui.right_hand_slot.set_equipment_texture(null)
+	#
+	#if combat_system.left_weapon == inventory_item_to_eject.weapon_item:
+		#combat_system.left_weapon = null
+		#on_screen_ui.left_hand_slot.set_equipment_texture(null)
 
 # Devuelve el ítem en la posición idx (0 basado)
 func get_item_at_index(idx: int) -> InventoryItem:

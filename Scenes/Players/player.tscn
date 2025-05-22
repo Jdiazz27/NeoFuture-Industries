@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://r28xvdwao1ik"]
+[gd_scene load_steps=90 format=3 uid="uid://r28xvdwao1ik"]
 
 [ext_resource type="Script" uid="uid://dkur4lcv6q43f" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://cvq0a8yv4unto" path="res://Scripts/Player/animation_controller.gd" id="3_6t5aa"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://ckk4aj2u1k2jf" path="res://Scripts/Inventario/inventory.gd" id="6_3smsa"]
 [ext_resource type="Shape2D" uid="uid://cr2qwjwx3kt7j" path="res://Resources/Player/player_collsion_shape.tres" id="7_3smsa"]
 [ext_resource type="PackedScene" uid="uid://byujm22yfx4xf" path="res://Scenes/UI/on_screen_ui.tscn" id="7_t5hbk"]
-[ext_resource type="Script" uid="uid://cxu1cb54a0vs8" path="res://Scripts/Ataque/combat_system.gd" id="8_il5c8"]
 [ext_resource type="Script" uid="uid://dr7ouxmuh1qn2" path="res://Scripts/hit_box.gd" id="9_oxhme"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjdqd"]
@@ -637,10 +636,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fkybt"]
 radius = 6.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfkdj"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxqkx"]
-
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 collision_mask = 14
@@ -676,27 +671,6 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = ExtResource("7_3smsa")
-
-[node name="CombatSystem" type="Node2D" parent="."]
-script = ExtResource("8_il5c8")
-
-[node name="RightHandWeaponSprite" type="Sprite2D" parent="CombatSystem"]
-
-[node name="Area2D" type="Area2D" parent="CombatSystem/RightHandWeaponSprite"]
-collision_layer = 16
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatSystem/RightHandWeaponSprite/Area2D"]
-shape = SubResource("CapsuleShape2D_gfkdj")
-
-[node name="LeftHandWeaponSprite2" type="Sprite2D" parent="CombatSystem"]
-
-[node name="Area2D" type="Area2D" parent="CombatSystem/LeftHandWeaponSprite2"]
-collision_layer = 16
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatSystem/LeftHandWeaponSprite2/Area2D"]
-shape = SubResource("CapsuleShape2D_xxqkx")
 
 [node name="hitBox" type="Area2D" parent="."]
 script = ExtResource("9_oxhme")

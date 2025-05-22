@@ -11,7 +11,6 @@ scale = Vector2(1.01105, 1.0625)
 collision_layer = 8
 script = ExtResource("1_3cdwf")
 inventory_item = ExtResource("2_ws8k0")
-stacks = 12
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_fv6p2")

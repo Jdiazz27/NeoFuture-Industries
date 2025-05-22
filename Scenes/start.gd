@@ -17,9 +17,9 @@ var enemigos_list: ListaEnlazada
 var basura_list: ListaEnlazada
 var puntaje_list: ListaEnlazada
 
-var nMonedas = 1
-var nEnemigos = 1
-var nBasura = 1
+var nMonedas = 0
+var nEnemigos = 0
+var nBasura = 0
 
 func _ready():
 	var monedas = nodo.new("Monedas")
@@ -45,13 +45,13 @@ func _ready():
 func add(list:String, data:String):
 	if data == "moneda":
 		data = data + str(nMonedas)
-		nMonedas += 1
+		nMonedas = nMonedas + 1
 	elif data == "enemigo":
 		data = data + str(nEnemigos)
-		nEnemigos += 1
+		nEnemigos = nEnemigos + 1
 	elif data == "basura":
 		data = data + str(nBasura)
-		nBasura += 1
+		nBasura = nBasura + 1
 		
 	var new_node = nodo.new(data)
 	match list:
@@ -65,5 +65,5 @@ func add(list:String, data:String):
 			puntaje_list.agregar_al_final(new_node)
 
 func getData():
-	var puntaje = nEnemigos * 50
+	var puntaje = (nEnemigos * 50) + (nMonedas * 25)
 	return [puntaje, nEnemigos, nMonedas, nBasura]
