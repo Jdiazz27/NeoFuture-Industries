@@ -12,7 +12,7 @@ func _ready() -> void:
 	sprite_2d.texture = inventory_item.texture
 	collision_shape_2d.shape = inventory_item.ground_collision_shape
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	var player = players[0]
 	player.increase_oxygen(inventory_item.oxygen_restore)

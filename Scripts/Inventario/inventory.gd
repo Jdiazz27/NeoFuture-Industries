@@ -19,7 +19,7 @@ func _ready() -> void:
 	inventory_ui.drop_item_on_the_ground.connect(on_item_dropped)
 	# No conectar spell_slot_clicked porque ya no existe
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_inventory"):
 		inventory_ui.toggle()
 

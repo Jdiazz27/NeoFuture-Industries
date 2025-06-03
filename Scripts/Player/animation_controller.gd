@@ -10,19 +10,19 @@ var last_direction: Vector2 = Vector2.DOWN
 const MOVEMENT_TO_IDLE = {
 	"up_walk": "up_idle",
 	"down_walk": "down_idle",
-	"right_walk": "right_idle"
+	"right_walk": "right_idle",
+	"left_walk": "left_idle"
 }
 
 const DIRECTION_TO_ATTACK_ANIMATION = {
 	"up": "up_attack",
 	"down": "down_attack",
 	"right": "right_attack",
-	"left": "right_attack"
+	"left": "left_attack"
 }
 
 func _ready():
 	connect("frame_changed", Callable(self, "_on_frame_changed"))
-	connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _on_frame_changed():
 	if frame == sprite_frames.get_frame_count(animation) - 1:
@@ -34,10 +34,11 @@ func play_movement_animation(vel: Vector2) -> void:
 		last_direction = vel.normalized()
 
 	if abs(vel.x) > abs(vel.y):
-		flip_h = vel.x < 0
-		play("right_walk")
+		if vel.x < 0:
+			play("left_walk")
+		else:
+			play("right_walk")
 	else:
-		flip_h = false
 		if vel.y > 0:
 			play("down_walk")
 		else:
@@ -58,16 +59,8 @@ func play_attack_animation(velocity):
 	else:
 		direction = "down" if velocity.y > 0 else "up"
 
-	if direction == "left":
-		flip_h = true
-	elif direction == "right":
-		flip_h = false
-
 	play(DIRECTION_TO_ATTACK_ANIMATION[direction])
-	if direction != "left":
-		animation_player.play(DIRECTION_TO_ATTACK_ANIMATION[direction])
-	else:
-		animation_player.play("left_attack")
+	animation_player.play(DIRECTION_TO_ATTACK_ANIMATION[direction] + "_weapon")
 
 func _on_animation_finished() -> void:
 	if DIRECTION_TO_ATTACK_ANIMATION.values().has(animation):

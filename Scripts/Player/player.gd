@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
+@onready var weapon: Node2D = $weapon
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var inventory: Inventory = $Inventory
@@ -22,17 +23,18 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
 		velocity.y = move_toward(velocity.y, 0, SPEED * delta)
 	
-	if velocity != Vector2.ZERO:
-		animated_sprite_2d.play_movement_animation(velocity)
-	else:
-		animated_sprite_2d.play_idle_animation()
-		
 	if Input.is_action_just_pressed("left_hand_action") or Input.is_action_just_pressed("right_hand_action"):
 		animated_sprite_2d.play_attack_animation(velocity)
 		isAttacking = true
 		await animated_sprite_2d.attack_animation_finished
 		isAttacking = false
 	
+	if not isAttacking:
+		if velocity != Vector2.ZERO:
+			animated_sprite_2d.play_movement_animation(velocity)
+		else:
+			animated_sprite_2d.play_idle_animation()
+
 	move_and_slide()
 
 func _ready():
