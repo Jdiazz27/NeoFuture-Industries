@@ -3,12 +3,12 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var inventory: Inventory = $Inventory
-#@onready var weapon = $sword
-#@onready var hit_box = $HitBox
 @onready var oxygenBar: TextureProgressBar = get_node("../CanvasLayer/oxygenBar")
 @onready var oxygenTimer: Timer = $OxygenTimer
 var main
+var isAttacking: bool = false
 
 const SPEED = 5000.0
 var oxygen := 40
@@ -26,14 +26,14 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play_movement_animation(velocity)
 	else:
 		animated_sprite_2d.play_idle_animation()
+		
+	if Input.is_action_just_pressed("left_hand_action") or Input.is_action_just_pressed("right_hand_action"):
+		animated_sprite_2d.play_attack_animation(velocity)
+		isAttacking = true
+		await animated_sprite_2d.attack_animation_finished
+		isAttacking = false
 	
 	move_and_slide()
-
-#func _process(delta):
-	#if Input.is_action_just_pressed("attack"):
-		#hit_box.monitoring = true
-		#await get_tree().create_timer(0.2).timeout
-		#hit_box.monitoring = false
 
 func _ready():
 	add_to_group("player")

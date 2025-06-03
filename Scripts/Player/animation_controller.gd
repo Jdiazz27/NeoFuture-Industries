@@ -1,52 +1,73 @@
 extends AnimatedSprite2D
 class_name AnimationController
 
+@onready var weapon: Node2D = $"../weapon"
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
+signal attack_animation_finished
+var attack_direction = null
+var last_direction: Vector2 = Vector2.DOWN
+
 const MOVEMENT_TO_IDLE = {
-	"back_walk": "back_idle",
-	"front_walk": "front_idle",
+	"up_walk": "up_idle",
+	"down_walk": "down_idle",
 	"right_walk": "right_idle"
 }
 
 const DIRECTION_TO_ATTACK_ANIMATION = {
-	"back": "back_attack",
-	"front": "front_attack",
+	"up": "up_attack",
+	"down": "down_attack",
 	"right": "right_attack",
-	"left": "left_attack"
+	"left": "right_attack"
 }
 
-const DIRECTION_TO_ATTACK_VECTOR = {
-	"back": Vector2(0, -1),
-	"front": Vector2(0, 1),
-	"right": Vector2(1, 0),
-	"left": Vector2(-1, 0)
-}
+func _ready():
+	connect("frame_changed", Callable(self, "_on_frame_changed"))
+	connect("animation_finished", Callable(self, "_on_animation_finished"))
 
-var attack_direction = null
+func _on_frame_changed():
+	if frame == sprite_frames.get_frame_count(animation) - 1:
+		if DIRECTION_TO_ATTACK_ANIMATION.values().has(animation):
+			emit_signal("attack_animation_finished")
 
 func play_movement_animation(vel: Vector2) -> void:
+	if vel.length() > 0:
+		last_direction = vel.normalized()
+
 	if abs(vel.x) > abs(vel.y):
-		# Movimiento lateral
-		flip_h = vel.x < 0  # Voltea si va a la izquierda
+		flip_h = vel.x < 0
 		play("right_walk")
 	else:
-		# Movimiento vertical
-		flip_h = false  # Asegura que no quede volteado
+		flip_h = false
 		if vel.y > 0:
-			play("front_walk")
+			play("down_walk")
 		else:
-			play("back_walk")
+			play("up_walk")
 
 func play_idle_animation():
 	var idle_anim = MOVEMENT_TO_IDLE.get(animation, "")
 	if idle_anim != "":
 		play(idle_anim)
 
+func play_attack_animation(velocity):
+	var direction = ""
+	if velocity.length() == 0:
+		velocity = last_direction
 
-func play_attack_animation():
-	var direction = animation.split("_")[0]
-	attack_direction = direction
+	if abs(velocity.x) > abs(velocity.y):
+		direction = "right" if velocity.x > 0 else "left"
+	else:
+		direction = "down" if velocity.y > 0 else "up"
+
+	if direction == "left":
+		flip_h = true
+	elif direction == "right":
+		flip_h = false
+
 	play(DIRECTION_TO_ATTACK_ANIMATION[direction])
-
+	if direction != "left":
+		animation_player.play(DIRECTION_TO_ATTACK_ANIMATION[direction])
+	else:
+		animation_player.play("left_attack")
 
 func _on_animation_finished() -> void:
 	if DIRECTION_TO_ATTACK_ANIMATION.values().has(animation):

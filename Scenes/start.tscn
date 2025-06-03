@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=4 uid="uid://dn3uksd5mxxrv"]
 
 [ext_resource type="PackedScene" uid="uid://r28xvdwao1ik" path="res://Scenes/Players/player.tscn" id="1_3bxa3"]
-[ext_resource type="Script" uid="uid://eqbvuovudgep" path="res://Scenes/start.gd" id="1_7pwkw"]
-[ext_resource type="Texture2D" uid="uid://cimmk6uefv8ky" path="res://2/Sprites/Backgrounds2/Tilesets/apocalypse/Zombie Apocalypse Tileset Reference.png" id="2_rk01k"]
+[ext_resource type="Script" uid="uid://eqbvuovudgep" path="res://Scripts/start.gd" id="1_7pwkw"]
+[ext_resource type="Texture2D" uid="uid://cimmk6uefv8ky" path="res://Assets/Sprites/Backgrounds/Tilesets/apocalypse/Zombie Apocalypse Tileset Reference.png" id="2_rk01k"]
 [ext_resource type="AudioStream" uid="uid://d0et07uru83" path="res://Assets/music/264900__speedenza__desolate-wasteland-background.mp3" id="3_5ogh5"]
 [ext_resource type="Texture2D" uid="uid://75qm88ytsu72" path="res://Scenes/Players/oxygen_bar.png" id="4_7pwkw"]
 [ext_resource type="Texture2D" uid="uid://bfrqauowb6fxu" path="res://Scenes/Players/empty_bar.png" id="5_5bn4p"]
 [ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/pickup_item.tscn" id="5_rk01k"]
 [ext_resource type="Texture2D" uid="uid://brj28ixuk15md" path="res://Scenes/Players/complete_bar.png" id="6_qmsyr"]
-[ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scenes/item_spawner.gd" id="8_iceld"]
+[ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scripts/item_spawner.gd" id="8_iceld"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3wvq"]
 texture = ExtResource("2_rk01k")
@@ -622,9 +622,7 @@ separation = Vector2i(1, 3)
 19:1/0 = 0
 19:1/0/z_index = 1
 21:1/0 = 0
-21:1/0/z_index = 1
 22:1/0 = 0
-22:1/0/z_index = 1
 23:1/0 = 0
 23:1/0/z_index = 1
 24:1/0 = 0
@@ -680,11 +678,9 @@ separation = Vector2i(1, 3)
 19:2/0 = 0
 19:2/0/z_index = 1
 20:2/0 = 0
-20:2/0/z_index = 1
 21:2/0 = 0
 21:2/0/z_index = 1
 22:2/0 = 0
-22:2/0/z_index = 1
 23:2/0 = 0
 24:2/0 = 0
 24:2/0/z_index = 1
@@ -733,11 +729,17 @@ separation = Vector2i(1, 3)
 13:3/0 = 0
 13:3/0/z_index = 1
 14:3/0 = 0
+14:3/0/z_index = 1
 15:3/0 = 0
+15:3/0/z_index = 1
 16:3/0 = 0
+16:3/0/z_index = 1
 17:3/0 = 0
+17:3/0/z_index = 1
 18:3/0 = 0
+18:3/0/z_index = 1
 19:3/0 = 0
+19:3/0/z_index = 1
 20:3/0 = 0
 21:3/0 = 0
 22:3/0 = 0
@@ -791,13 +793,18 @@ separation = Vector2i(1, 3)
 12:4/0 = 0
 12:4/0/z_index = 1
 13:4/0 = 0
-13:4/0/z_index = 1
 14:4/0 = 0
+14:4/0/z_index = 1
 15:4/0 = 0
+15:4/0/z_index = 1
 16:4/0 = 0
+16:4/0/z_index = 1
 17:4/0 = 0
+17:4/0/z_index = 1
 18:4/0 = 0
+18:4/0/z_index = 1
 19:4/0 = 0
+19:4/0/z_index = 1
 20:4/0 = 0
 21:4/0 = 0
 22:4/0 = 0
@@ -837,7 +844,6 @@ separation = Vector2i(1, 3)
 3:5/0/z_index = 1
 3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 1.34894, 8, 1.34894)
 4:5/0 = 0
-4:5/0/z_index = 1
 5:5/0 = 0
 5:5/0/z_index = 1
 5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 1.34894, 8, 1.34894)
@@ -856,16 +862,22 @@ separation = Vector2i(1, 3)
 13:5/0 = 0
 13:5/0/z_index = 1
 14:5/0 = 0
+14:5/0/z_index = 1
 14:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.0899296, -8, 8, -8, 8, 8, -0.0899296, 8)
 15:5/0 = 0
+15:5/0/z_index = 1
 15:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:5/0 = 0
+16:5/0/z_index = 1
 16:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 17:5/0 = 0
+17:5/0/z_index = 1
 17:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 18:5/0 = 0
+18:5/0/z_index = 1
 18:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 19:5/0 = 0
+19:5/0/z_index = 1
 20:5/0 = 0
 20:5/0/z_index = 1
 20:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1329,11 +1341,9 @@ separation = Vector2i(1, 3)
 15:12/0 = 0
 15:12/0/z_index = 1
 16:12/0 = 0
-16:12/0/z_index = 1
 17:12/0 = 0
 17:12/0/z_index = 1
 18:12/0 = 0
-18:12/0/z_index = 1
 19:12/0 = 0
 19:12/0/z_index = 1
 20:12/0 = 0
@@ -1405,11 +1415,8 @@ separation = Vector2i(1, 3)
 15:13/0/z_index = 1
 15:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 16:13/0 = 0
-16:13/0/z_index = 1
 17:13/0 = 0
-17:13/0/z_index = 1
 18:13/0 = 0
-18:13/0/z_index = 1
 19:13/0 = 0
 20:13/0 = 0
 21:13/0 = 0
@@ -1452,7 +1459,6 @@ separation = Vector2i(1, 3)
 42:13/0 = 0
 43:13/0 = 0
 20:1/0 = 0
-20:1/0/z_index = 1
 3:8/0 = 0
 3:9/0 = 0
 11:9/0 = 0
