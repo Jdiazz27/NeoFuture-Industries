@@ -5,7 +5,6 @@ class_name Player
 @onready var weapon: Node2D = $weapon
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var inventory: Inventory = $Inventory
 @onready var oxygenBar: TextureProgressBar = get_node("../CanvasLayer/oxygenBar")
 @onready var oxygenTimer: Timer = $OxygenTimer
 var main
@@ -45,7 +44,6 @@ func _ready():
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is PickUpItem:
-		inventory.add_item(area.inventory_item, area.stacks)
 		main.add("monedas_list", "moneda")
 		area.queue_free()
 
@@ -63,13 +61,10 @@ func die():
 	dataScript = Datos.new()
 	
 	var data = main.getData()
-	print(data)
-	data = str(dataScript.buscarUltimaPartida()) + "," + ",".join(data)
-	print(data)
-	if FileAccess.file_exists(ruta):
-		dataScript.agregar_linea_csv(ruta, data)
-	else:
+	if !FileAccess.file_exists(ruta):
 		dataScript.crear_csv(ruta)
+	data = str(dataScript.buscarUltimaPartida()) + "," + ",".join(data)
+	dataScript.agregar_linea_csv(ruta, data)
 
 func increase_oxygen(amount: int):
 	oxygen += amount

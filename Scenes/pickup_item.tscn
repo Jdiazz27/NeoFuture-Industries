@@ -7,6 +7,21 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cdwf"]
 radius = 7.96835
 
+[sub_resource type="Animation" id="Animation_ws8k0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.507536, 0.507536)]
+}
+
 [sub_resource type="Animation" id="Animation_fv6p2"]
 resource_name = "floating"
 length = 5.0
@@ -24,21 +39,6 @@ tracks/0/keys = {
 "values": [Vector2(0.507536, 0.507536), Vector2(1.00878, 1.00878)]
 }
 
-[sub_resource type="Animation" id="Animation_ws8k0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.507536, 0.507536)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvgj2"]
 _data = {
 &"RESET": SubResource("Animation_ws8k0"),
@@ -54,7 +54,6 @@ inventory_item = ExtResource("2_ws8k0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.17906e-07, 2.24394e-07)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_3cdwf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
