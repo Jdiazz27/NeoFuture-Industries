@@ -6,13 +6,13 @@ class_name Player
 @onready var animated_sprite_2d: AnimationController = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var inventory: Inventory = $Inventory
-@onready var oxygenBar: TextureProgressBar = get_node("../CanvasLayer/oxygenBar")
-@onready var oxygenTimer: Timer = $OxygenTimer
+@onready var oxygen_bar: TextureProgressBar = $CanvasLayer/oxygenBar
+@onready var oxygen_timer: Timer = $OxygenTimer
+
 var main
 var isAttacking: bool = false
-
-const SPEED = 5000.0
 var oxygen := 40
+const SPEED = 5000.0
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -39,8 +39,8 @@ func _physics_process(delta: float) -> void:
 
 func _ready():
 	add_to_group("player")
-	oxygenBar.value = oxygen
-	oxygenTimer.start()
+	oxygen_bar.value = oxygen
+	oxygen_timer.start()
 	main = get_parent()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -52,7 +52,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_oxygen_timer_timeout() -> void:
 	if oxygen > 0:
 		oxygen -= 5
-		oxygenBar.value = oxygen
+		oxygen_bar.value = oxygen
 	if oxygen <= 0:
 		die()
 
@@ -74,4 +74,4 @@ func die():
 func increase_oxygen(amount: int):
 	oxygen += amount
 	oxygen = clamp(oxygen, 0, 40)
-	oxygenBar.value = oxygen
+	oxygen_bar.value = oxygen

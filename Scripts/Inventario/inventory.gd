@@ -8,7 +8,7 @@ class_name Inventory
 @onready var animated_sprite_2d: AnimationController = $"../AnimatedSprite2D"
 var ListaEnlazada = preload("res://Scripts/ListaEnlazada.gd")
 
-const PICKUP_ITEM_SCENE = preload("res://Scenes/pickup_item.tscn")
+const PICKUP_ITEM_SCENE = preload("res://Scenes/items/pickup_item.tscn")
 # items currently in inventory
 @export var items = ListaEnlazada.new()
 

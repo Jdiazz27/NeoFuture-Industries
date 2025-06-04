@@ -1,6 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://bwvcxmbkbmm86"]
+[gd_scene load_steps=38 format=3 uid="uid://bwvcxmbkbmm86"]
 
+[ext_resource type="Script" uid="uid://c0grh6u0w7fv2" path="res://Scripts/Enemigos/mutant_plant.gd" id="1_1f0xk"]
 [ext_resource type="Texture2D" uid="uid://06wo6b0fl7m4" path="res://Resources/enemys/mutantPlant/mutantPlantSheet.png" id="1_br14v"]
+[ext_resource type="Script" uid="uid://bhje1fej75go" path="res://Scripts/hurt_box.gd" id="1_h7a0u"]
+[ext_resource type="Texture2D" uid="uid://b68xih1ri40ch" path="res://Resources/enemys/dissapear.png" id="4_mih6a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7a0u"]
 atlas = ExtResource("1_br14v")
@@ -65,6 +68,22 @@ region = Rect2(896, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kh2v4"]
 atlas = ExtResource("1_br14v")
 region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t54l3"]
+atlas = ExtResource("4_mih6a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db8qv"]
+atlas = ExtResource("4_mih6a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2yw2"]
+atlas = ExtResource("4_mih6a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh87v"]
+atlas = ExtResource("4_mih6a")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12loq"]
 atlas = ExtResource("1_br14v")
@@ -172,6 +191,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_t54l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db8qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2yw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh87v")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"die",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_12loq")
 }, {
 "duration": 1.0,
@@ -214,18 +253,26 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_db8qv"]
-size = Vector2(22, 38.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0xk"]
+size = Vector2(16.7619, 33.6)
 
-[node name="mutantPlant" type="CharacterBody2D"]
+[node name="mutantPlant" type="Node2D"]
+z_index = 1
+script = ExtResource("1_1f0xk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t54l3")
 animation = &"idle"
 autoplay = "idle"
-frame = 7
-frame_progress = 0.866606
+frame = 1
+frame_progress = 0.917228
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 13)
-shape = SubResource("RectangleShape2D_db8qv")
+[node name="hurt_box" type="Area2D" parent="."]
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(1.3125, 1.25)
+script = ExtResource("1_h7a0u")
+metadata/_custom_type_script = "uid://bhje1fej75go"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+position = Vector2(9.08263e-08, 8.8)
+shape = SubResource("RectangleShape2D_1f0xk")
