@@ -800,7 +800,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_il5c8"]
 resource_name = "up_attack_weapon"
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -808,10 +808,10 @@ tracks/0/path = NodePath("weapon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4, 3), Vector2(4, 3)]
+"values": [Vector2(4, 3)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -820,7 +820,7 @@ tracks/1/path = NodePath("weapon:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.366667),
+"times": PackedFloat32Array(0, 0.19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.785398, -0.785398]
@@ -832,7 +832,7 @@ tracks/2/path = NodePath("weapon:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -879,7 +879,7 @@ shape = SubResource("CircleShape2D_fkybt")
 zoom = Vector2(3, 3)
 limit_left = -460
 limit_top = -160
-limit_right = 270
+limit_right = 245
 limit_bottom = 280
 
 [node name="OnScreenUI" parent="." instance=ExtResource("7_t5hbk")]

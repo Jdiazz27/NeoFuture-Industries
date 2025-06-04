@@ -1,9 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://lfetd7j8elsp"]
+[gd_scene load_steps=8 format=3 uid="uid://lfetd7j8elsp"]
 
 [ext_resource type="Script" uid="uid://cuhjdmsqi4di1" path="res://Scripts/Inventario/pickup_item.gd" id="1_3cdwf"]
 [ext_resource type="Resource" uid="uid://df1qg87tfwuem" path="res://Resources/gold_coin.tres" id="2_ws8k0"]
-[ext_resource type="Texture2D" uid="uid://eqodybklw0qj" path="res://2/Sprites/Items2/Weapons/Sword2/Sprite.png" id="3_fv6p2"]
-[ext_resource type="Shape2D" uid="uid://cp8loarn50d6" path="res://Resources/Weapons/Sword/sword_ground_collision_shape.tres" id="4_ws8k0"]
+[ext_resource type="Texture2D" path="res://Resources/GoldCoin/item478-2.png" id="3_3cdwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3cdwf"]
+radius = 7.96835
+
+[sub_resource type="Animation" id="Animation_fv6p2"]
+resource_name = "floating"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.507536, 0.507536), Vector2(1.00878, 1.00878)]
+}
+
+[sub_resource type="Animation" id="Animation_ws8k0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.507536, 0.507536)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvgj2"]
+_data = {
+&"RESET": SubResource("Animation_ws8k0"),
+&"floating": SubResource("Animation_fv6p2")
+}
 
 [node name="PickUpItem" type="Area2D"]
 z_index = 1
@@ -12,9 +52,17 @@ collision_layer = 8
 script = ExtResource("1_3cdwf")
 inventory_item = ExtResource("2_ws8k0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_fv6p2")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.17906e-07, 2.24394e-07)
-shape = ExtResource("4_ws8k0")
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_3cdwf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.507536, 0.507536)
+texture = ExtResource("3_3cdwf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wvgj2")
+}
+autoplay = "floating"

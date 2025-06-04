@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=3 uid="uid://vhrx2h4ksofc"]
+
+[ext_resource type="Script" uid="uid://b3x88scvaysll" path="res://Scripts/trash_item.gd" id="1_03t5o"]
+[ext_resource type="Texture2D" uid="uid://cd47s721yfxbq" path="res://Resources/items/bottle2idle.png" id="2_krfi3"]
+[ext_resource type="Texture2D" uid="uid://lnrs2yftjs46" path="res://Resources/items/boxidle.png" id="3_pjo12"]
+[ext_resource type="Texture2D" uid="uid://dpugqr21hevqr" path="res://Resources/items/flipflopidle.png" id="4_gvxda"]
+[ext_resource type="Texture2D" uid="uid://chmtpo5a4icml" path="res://Resources/items/maskidle.png" id="5_n40mk"]
+[ext_resource type="Texture2D" uid="uid://cw8v7ig1u8pu" path="res://Resources/items/tireidle.png" id="6_y10x2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eh3fp"]
+
+[sub_resource type="Animation" id="Animation_ktah5"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.502282, 0.502282)]
+}
+
+[sub_resource type="Animation" id="Animation_pjo12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.502282, 0.502282)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvxda"]
+_data = {
+&"RESET": SubResource("Animation_pjo12"),
+&"idle": SubResource("Animation_ktah5")
+}
+
+[node name="TrashItem" type="Area2D"]
+script = ExtResource("1_03t5o")
+trash_sprites = Array[Texture2D]([ExtResource("2_krfi3"), ExtResource("3_pjo12"), ExtResource("4_gvxda"), ExtResource("5_n40mk"), ExtResource("6_y10x2")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.502282, 0.502282)
+texture = ExtResource("2_krfi3")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.51007, 0.51007)
+shape = SubResource("CircleShape2D_eh3fp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gvxda")
+}
+autoplay = "idle"

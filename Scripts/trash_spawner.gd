@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var pickup_scene: PackedScene
+@export var trash_scene: PackedScene
 @export var min_spawn_x: float = -380
 @export var max_spawn_x: float = 245
 @export var min_spawn_y: float = -160
@@ -14,35 +14,32 @@ var current_spawned: int = 0
 
 func _ready():
 	spawn_timer.wait_time = spawn_delay
-	spawn_timer.timeout.connect(spawn_pickup_item)
+	spawn_timer.timeout.connect(spawn_trash)
 	spawn_timer.start()
 
-func spawn_pickup_item():
+func spawn_trash():
 	if current_spawned >= max_spawn_count:
 		return
 
 	var space_state = get_world_2d().direct_space_state
 
-	for i in range(10):
+	for i in range(10): 
 		var rand_pos = Vector2(
 			randf_range(min_spawn_x, max_spawn_x),
 			randf_range(min_spawn_y, max_spawn_y)
 		)
 
-		var shape = CircleShape2D.new()
-		shape.radius = 8 
+		var params = PhysicsPointQueryParameters2D.new()
+		params.position = rand_pos
+		params.collision_mask = 2
 
-		var shape_owner = PhysicsShapeQueryParameters2D.new()
-		shape_owner.shape = shape
-		shape_owner.transform = Transform2D(0, rand_pos)
-		shape_owner.collision_mask = 2
+		var result = space_state.intersect_point(params)
 
-		var result = space_state.intersect_shape(shape_owner)
-		
 		if result.is_empty():
-			var item = pickup_scene.instantiate()
-			item.position = rand_pos
-			get_tree().current_scene.add_child(item)
-
+			var trash = trash_scene.instantiate()
+			trash.z_index = 5
+			trash.position = rand_pos
+			get_tree().current_scene.add_child(trash)
 			current_spawned += 1
+			
 			break
