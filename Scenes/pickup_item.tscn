@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cuhjdmsqi4di1" path="res://Scripts/Inventario/pickup_item.gd" id="1_3cdwf"]
 [ext_resource type="Resource" uid="uid://df1qg87tfwuem" path="res://Resources/gold_coin.tres" id="2_ws8k0"]
-[ext_resource type="Texture2D" path="res://Resources/GoldCoin/item478-2.png" id="3_3cdwf"]
+[ext_resource type="Texture2D" uid="uid://c4dr1d0dsvsth" path="res://Resources/items/item478-2.png" id="3_3cdwf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cdwf"]
 radius = 7.96835
