@@ -2,14 +2,14 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://c6xek8mer4ke7"
+uid="uid://ryy0c76b5u6v"
 
 [deps]
 
-files=["res://Archivos/datos.puntos.translation", "res://Archivos/datos.enemigos.translation", "res://Archivos/datos.monedas.translation", "res://Archivos/datos.basura.translation"]
+files=["res://Archivos/datos.puntos.translation", "res://Archivos/datos.enemigos.translation", "res://Archivos/datos.oxigeno.translation", "res://Archivos/datos.basura.translation"]
 
 source_file="res://Archivos/datos.csv"
-dest_files=["res://Archivos/datos.puntos.translation", "res://Archivos/datos.enemigos.translation", "res://Archivos/datos.monedas.translation", "res://Archivos/datos.basura.translation"]
+dest_files=["res://Archivos/datos.puntos.translation", "res://Archivos/datos.enemigos.translation", "res://Archivos/datos.oxigeno.translation", "res://Archivos/datos.basura.translation"]
 
 [params]
 
