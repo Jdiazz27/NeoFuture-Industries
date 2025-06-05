@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dih12dnaau2xa"
+
+[deps]
+
+files=["res://Archivos/usuarios.contraseñas.translation"]
+
+source_file="res://Archivos/usuarios.csv"
+dest_files=["res://Archivos/usuarios.contraseñas.translation"]
+
+[params]
+
+compress=true
+delimiter=0

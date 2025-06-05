@@ -12,7 +12,7 @@ config_version=5
 
 config/name="purge-the-poison"
 config/tags=PackedStringArray("proyecto_final_poo")
-run/main_scene="uid://dn3uksd5mxxrv"
+run/main_scene="uid://cwsh0to0q0qd6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"

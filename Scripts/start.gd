@@ -6,12 +6,17 @@ func _input(event):
 			# Cambiar a modo ventana
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			# Ajustar tamaño de la ventana (por ejemplo, 800x600)
+<<<<<<< HEAD
 			DisplayServer.window_set_size(Vector2i(800, 600))
 
 func _process(delta):
 	if Input.is_action_just_pressed("next_level"):
 		cambiar_escena()
 		
+=======
+			DisplayServer.window_set_size(Vector2i(1000, 700))
+			
+>>>>>>> 82059494fd9522b654dc06cf439c2cf279648a28
 var ListaEnlazada = preload("res://Scripts/ListaEnlazada.gd")
 var nodo = preload("res://Scripts/nodoMultiple.gd")
 var partida = ListaEnlazada.new()

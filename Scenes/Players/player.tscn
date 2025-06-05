@@ -1,13 +1,14 @@
-[gd_scene load_steps=89 format=3 uid="uid://r28xvdwao1ik"]
+[gd_scene load_steps=90 format=3 uid="uid://r28xvdwao1ik"]
 
 [ext_resource type="Script" uid="uid://dkur4lcv6q43f" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://cvq0a8yv4unto" path="res://Scripts/Player/animation_controller.gd" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://8vet366ooj1o" path="res://Assets/Sprites/IndianaJones.png" id="4_3smsa"]
-[ext_resource type="PackedScene" uid="uid://onrx87q2e86p" path="res://Scenes/UI/inventory_ui.tscn" id="5_x3wgy"]
 [ext_resource type="Script" uid="uid://ckk4aj2u1k2jf" path="res://Scripts/Inventario/inventory.gd" id="6_3smsa"]
 [ext_resource type="Shape2D" uid="uid://cr2qwjwx3kt7j" path="res://Resources/Player/player_collsion_shape.tres" id="7_3smsa"]
-[ext_resource type="PackedScene" uid="uid://byujm22yfx4xf" path="res://Scenes/UI/on_screen_ui.tscn" id="7_t5hbk"]
-[ext_resource type="PackedScene" uid="uid://c1lk80o6qqv45" path="res://Scenes/bat.tscn" id="9_gfkdj"]
+[ext_resource type="PackedScene" uid="uid://c1lk80o6qqv45" path="res://Scenes/weapons/bat.tscn" id="9_gfkdj"]
+[ext_resource type="Texture2D" uid="uid://bfrqauowb6fxu" path="res://Scenes/Players/empty_bar.png" id="9_xxqkx"]
+[ext_resource type="Texture2D" uid="uid://75qm88ytsu72" path="res://Scenes/Players/oxygen_bar.png" id="10_j8xm3"]
+[ext_resource type="Texture2D" uid="uid://brj28ixuk15md" path="res://Scenes/Players/complete_bar.png" id="11_r5bcf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qavoy"]
 atlas = ExtResource("4_3smsa")
@@ -667,7 +668,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [2]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -719,7 +720,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [2]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -783,7 +784,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [2]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -847,7 +848,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7vh4w"]
@@ -882,11 +883,6 @@ limit_top = -160
 limit_right = 245
 limit_bottom = 280
 
-[node name="OnScreenUI" parent="." instance=ExtResource("7_t5hbk")]
-
-[node name="InventoryUI" parent="." instance=ExtResource("5_x3wgy")]
-visible = false
-
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("6_3smsa")
 
@@ -908,5 +904,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_7vh4w")
 }
 
+[node name="OxygenTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="oxygenBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 483.0
+offset_bottom = 171.0
+scale = Vector2(0.4, 0.4)
+max_value = 40.0
+value = 40.0
+texture_under = ExtResource("9_xxqkx")
+texture_over = ExtResource("10_j8xm3")
+texture_progress = ExtResource("11_r5bcf")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="OxygenTimer" to="." method="_on_oxygen_timer_timeout"]
