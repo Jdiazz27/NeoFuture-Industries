@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqp0ywa0t04py"]
 
-[ext_resource type="Script" uid="uid://dr7ouxmuh1qn2" path="res://Scripts/Ataque/hit_box.gd" id="1_18bky"]
+[ext_resource type="Script" uid="uid://dr7ouxmuh1qn2" path="res://Scenes/weapons/hit_box.gd" id="1_18bky"]
 
 [node name="hit_box" type="Area2D"]
+collision_layer = 48
+collision_mask = 49
 script = ExtResource("1_18bky")

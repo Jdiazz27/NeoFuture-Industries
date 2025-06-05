@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6ymrhewk8prn"]
 
 [ext_resource type="Texture2D" uid="uid://bpu553n3lj1d4" path="res://Resources/UI/gameOverBG.jpg" id="1_6pbke"]
-[ext_resource type="Script" uid="uid://kky8vknfvvae" path="res://Scenes/UI/game_over.gd" id="1_34bmr"]
+[ext_resource type="Script" uid="uid://kky8vknfvvae" path="res://Scripts/game_over.gd" id="1_34bmr"]
 [ext_resource type="FontFile" uid="uid://dj2m2fyjbp7f0" path="res://Resources/UI/PressStart2P-Regular.ttf" id="2_34bmr"]
 [ext_resource type="Texture2D" uid="uid://cjf657ghxtbka" path="res://Resources/UI/Button BG.png" id="4_ielvo"]
-[ext_resource type="Script" uid="uid://cataq4osu8vdk" path="res://Scenes/UI/button.gd" id="5_bnh5c"]
+[ext_resource type="Script" uid="uid://cataq4osu8vdk" path="res://Scripts/button.gd" id="5_bnh5c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wpfos"]
 font = ExtResource("2_34bmr")

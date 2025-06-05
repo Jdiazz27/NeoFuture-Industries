@@ -2,8 +2,10 @@ extends AnimatedSprite2D
 class_name AnimationController
 
 @onready var weapon: Node2D = $"../weapon"
+@onready var weapon_fist_child = weapon.get_child(0)
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 signal attack_animation_finished
+signal hurt_animation_finished
 var attack_direction = null
 var last_direction: Vector2 = Vector2.DOWN
 
@@ -22,12 +24,14 @@ const DIRECTION_TO_ATTACK_ANIMATION = {
 }
 
 func _ready():
-	connect("frame_changed", Callable(self, "_on_frame_changed"))
+	self.connect("frame_changed", Callable(self, "_on_frame_changed"))
 
 func _on_frame_changed():
 	if frame == sprite_frames.get_frame_count(animation) - 1:
 		if DIRECTION_TO_ATTACK_ANIMATION.values().has(animation):
 			emit_signal("attack_animation_finished")
+		elif animation.begins_with("hurt"):
+			emit_signal("hurt_animation_finished")
 
 func play_movement_animation(vel: Vector2) -> void:
 	if vel.length() > 0:
@@ -59,8 +63,24 @@ func play_attack_animation(velocity):
 	else:
 		direction = "down" if velocity.y > 0 else "up"
 
+	weapon_fist_child.enable_hitbox()
 	play(DIRECTION_TO_ATTACK_ANIMATION[direction])
 	animation_player.play(DIRECTION_TO_ATTACK_ANIMATION[direction] + "_weapon")
+	await animation_player.animation_finished
+	weapon_fist_child.disable_hitbox()
+
+func play_hurt_animation(velocity: Vector2):
+	var anim = ""
+	if abs(velocity.x) > 0:
+		anim = "hurt_right" if velocity.x > 0 else "hurt_left"
+	else:
+		anim = "hurt_right"
+
+	play(anim)
+	animation_player.play(anim)
+	await animation_player.animation_finished
+	play_idle_animation()
+	emit_signal("hurt_animation_finished")
 
 func _on_animation_finished() -> void:
 	if DIRECTION_TO_ATTACK_ANIMATION.values().has(animation):

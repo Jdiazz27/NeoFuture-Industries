@@ -120,6 +120,8 @@ _data = {
 }
 
 [node name="TrashItem" type="Area2D"]
+collision_layer = 8
+collision_mask = 7
 script = ExtResource("1_03t5o")
 trash_sprites = Array[Texture2D]([ExtResource("2_krfi3"), ExtResource("3_pjo12"), ExtResource("4_gvxda"), ExtResource("5_n40mk"), ExtResource("6_y10x2")])
 

@@ -31,8 +31,6 @@ func spawn_trash():
 
 		var params = PhysicsPointQueryParameters2D.new()
 		params.position = rand_pos
-		params.collision_mask = 2
-
 		var result = space_state.intersect_point(params)
 
 		if result.is_empty():

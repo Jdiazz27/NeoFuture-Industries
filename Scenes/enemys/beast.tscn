@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqqnuj3g26lt6" path="res://Scripts/Enemigos/static_enemy.gd" id="1_3d5ct"]
 [ext_resource type="Texture2D" uid="uid://d4l4jx8pis77x" path="res://Assets/Sprites/Beast/Beast.png" id="2_wiudq"]
-[ext_resource type="Script" uid="uid://bhje1fej75go" path="res://Scripts/hurt_box.gd" id="3_n2oh3"]
+[ext_resource type="Script" uid="uid://bhje1fej75go" path="res://Scripts/Enemigos/hurt_box.gd" id="3_n2oh3"]
 [ext_resource type="Script" uid="uid://cvvfhdokl4af3" path="res://Scripts/Enemigos/beastSprite2D.gd" id="4_n2oh3"]
 [ext_resource type="Texture2D" uid="uid://8vet366ooj1o" path="res://Assets/Sprites/IndianaJones.png" id="4_w0bji"]
 

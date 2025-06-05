@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://dn3uksd5mxxrv"]
+[gd_scene load_steps=13 format=4 uid="uid://dn3uksd5mxxrv"]
 
 [ext_resource type="PackedScene" uid="uid://r28xvdwao1ik" path="res://Scenes/Players/player.tscn" id="1_3bxa3"]
 [ext_resource type="Script" uid="uid://eqbvuovudgep" path="res://Scripts/start.gd" id="1_7pwkw"]
-[ext_resource type="Texture2D" uid="uid://cimmk6uefv8ky" path="res://2/Sprites/Backgrounds2/Tilesets/apocalypse/Zombie Apocalypse Tileset Reference.png" id="2_rk01k"]
+[ext_resource type="Texture2D" uid="uid://cimmk6uefv8ky" path="res://Assets/Sprites/Backgrounds/Tilesets/apocalypse/Zombie Apocalypse Tileset Reference.png" id="2_rk01k"]
 [ext_resource type="AudioStream" uid="uid://d0et07uru83" path="res://Assets/music/264900__speedenza__desolate-wasteland-background.mp3" id="3_5ogh5"]
 [ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/items/pickup_item.tscn" id="5_rk01k"]
+[ext_resource type="PackedScene" uid="uid://bwvcxmbkbmm86" path="res://Scenes/enemys/mutant_plant.tscn" id="8_7pwkw"]
 [ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scripts/item_spawner.gd" id="8_iceld"]
 [ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/items/trash_spawner.tscn" id="10_5bn4p"]
 
@@ -1557,7 +1558,7 @@ separation = Vector2i(1, 3)
 
 [sub_resource type="TileSet" id="TileSet_7pwkw"]
 physics_layer_0/collision_layer = 4
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_mask = 43
 sources/0 = SubResource("TileSetAtlasSource_iceld")
 
 [node name="start" type="Node2D"]
@@ -1586,5 +1587,8 @@ wait_time = 2.0
 autostart = true
 
 [node name="TrashSpawner" parent="." instance=ExtResource("10_5bn4p")]
+
+[node name="mutantPlant" parent="." instance=ExtResource("8_7pwkw")]
+position = Vector2(-169, -144)
 
 [node name="Player" parent="." instance=ExtResource("1_3bxa3")]

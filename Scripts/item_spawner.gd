@@ -30,19 +30,16 @@ func spawn_pickup_item():
 		)
 
 		var shape = CircleShape2D.new()
-		shape.radius = 8 
+		shape.radius = 16 
 
 		var shape_owner = PhysicsShapeQueryParameters2D.new()
 		shape_owner.shape = shape
 		shape_owner.transform = Transform2D(0, rand_pos)
-		shape_owner.collision_mask = 2
-
 		var result = space_state.intersect_shape(shape_owner)
 		
 		if result.is_empty():
 			var item = pickup_scene.instantiate()
 			item.position = rand_pos
 			get_tree().current_scene.add_child(item)
-
 			current_spawned += 1
 			break
