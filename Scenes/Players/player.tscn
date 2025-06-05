@@ -736,6 +736,10 @@ tracks/5/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_npdhm"]
+resource_name = "die"
+length = 2.0
+
 [sub_resource type="Animation" id="Animation_gfkdj"]
 resource_name = "down_attack_weapon"
 length = 0.2
@@ -1010,10 +1014,6 @@ tracks/3/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_npdhm"]
-resource_name = "die"
-length = 2.0
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7vh4w"]
 _data = {
 &"RESET": SubResource("Animation_oxhme"),
@@ -1051,7 +1051,6 @@ limit_left = -460
 limit_top = -160
 limit_right = 245
 limit_bottom = 280
-
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 8

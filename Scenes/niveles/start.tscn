@@ -1,15 +1,11 @@
 [gd_scene load_steps=13 format=4 uid="uid://dn3uksd5mxxrv"]
-[gd_scene load_steps=15 format=4 uid="uid://dn3uksd5mxxrv"]
 
 [ext_resource type="PackedScene" uid="uid://r28xvdwao1ik" path="res://Scenes/Players/player.tscn" id="1_3bxa3"]
 [ext_resource type="Script" uid="uid://eqbvuovudgep" path="res://Scripts/start.gd" id="1_7pwkw"]
 [ext_resource type="Texture2D" uid="uid://cimmk6uefv8ky" path="res://Assets/Sprites/Backgrounds/Tilesets/apocalypse/Zombie Apocalypse Tileset Reference.png" id="2_rk01k"]
 [ext_resource type="AudioStream" uid="uid://d0et07uru83" path="res://Assets/music/264900__speedenza__desolate-wasteland-background.mp3" id="3_5ogh5"]
-[ext_resource type="Texture2D" uid="uid://75qm88ytsu72" path="res://Scenes/Players/oxygen_bar.png" id="4_7pwkw"]
-[ext_resource type="Texture2D" uid="uid://bfrqauowb6fxu" path="res://Scenes/Players/empty_bar.png" id="5_5bn4p"]
 [ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/items/pickup_item.tscn" id="5_rk01k"]
 [ext_resource type="PackedScene" uid="uid://bwvcxmbkbmm86" path="res://Scenes/enemys/mutant_plant.tscn" id="8_7pwkw"]
-[ext_resource type="Texture2D" uid="uid://brj28ixuk15md" path="res://Scenes/Players/complete_bar.png" id="6_qmsyr"]
 [ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scripts/item_spawner.gd" id="8_iceld"]
 [ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/items/trash_spawner.tscn" id="10_5bn4p"]
 
@@ -1589,20 +1585,6 @@ position = Vector2(-87, 53)
 wait_time = 2.0
 autostart = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="oxygenBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 10.0
-offset_top = 11.0
-offset_right = 483.0
-offset_bottom = 171.0
-scale = Vector2(0.4, 0.4)
-max_value = 40.0
-value = 40.0
-texture_under = ExtResource("5_5bn4p")
-texture_over = ExtResource("4_7pwkw")
-texture_progress = ExtResource("6_qmsyr")
-
 [node name="ItemSpawner" type="Node2D" parent="."]
 script = ExtResource("8_iceld")
 pickup_scene = ExtResource("5_rk01k")
@@ -1615,5 +1597,3 @@ autostart = true
 
 [node name="mutantPlant" parent="." instance=ExtResource("8_7pwkw")]
 position = Vector2(-169, -144)
-
-[node name="Player" parent="." instance=ExtResource("1_3bxa3")]

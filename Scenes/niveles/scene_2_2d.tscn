@@ -1,15 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://qp0vc6rmjha8"]
+[gd_scene load_steps=13 format=4 uid="uid://qp0vc6rmjha8"]
 
 [ext_resource type="Texture2D" uid="uid://bv4tguh20aqkr" path="res://Resources/UI/images/image 1.png" id="1_4mq1b"]
 [ext_resource type="Script" uid="uid://dtpj0hk7glc6u" path="res://Scenes/niveles/scene_2_2d.gd" id="1_j58wj"]
 [ext_resource type="AudioStream" uid="uid://d0et07uru83" path="res://Assets/music/264900__speedenza__desolate-wasteland-background.mp3" id="2_2fta7"]
-[ext_resource type="Texture2D" uid="uid://bfrqauowb6fxu" path="res://Scenes/Players/empty_bar.png" id="3_0ns3f"]
-[ext_resource type="Texture2D" uid="uid://75qm88ytsu72" path="res://Scenes/Players/oxygen_bar.png" id="4_j58wj"]
-[ext_resource type="Texture2D" uid="uid://brj28ixuk15md" path="res://Scenes/Players/complete_bar.png" id="5_y1fie"]
 [ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scripts/item_spawner.gd" id="6_j0d1v"]
 [ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/items/pickup_item.tscn" id="7_kmnqn"]
 [ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/items/trash_spawner.tscn" id="8_dudxk"]
-[ext_resource type="PackedScene" uid="uid://r28xvdwao1ik" path="res://Scenes/Players/player.tscn" id="10_y1fie"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsu6p"]
 texture = ExtResource("1_4mq1b")
@@ -18461,9 +18457,6 @@ texture = ExtResource("1_4mq1b")
 [sub_resource type="TileSet" id="TileSet_f4aj7"]
 sources/0 = SubResource("TileSetAtlasSource_kcc2t")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j58wj"]
-size = Vector2(11, 16)
-
 [node name="Scene_2_2D" type="Node2D"]
 script = ExtResource("1_j58wj")
 
@@ -18489,20 +18482,6 @@ tile_set = SubResource("TileSet_f4aj7")
 stream = ExtResource("2_2fta7")
 autoplay = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="oxygenBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 10.0
-offset_top = 11.0
-offset_right = 483.0
-offset_bottom = 171.0
-scale = Vector2(0.4, 0.4)
-max_value = 40.0
-value = 40.0
-texture_under = ExtResource("3_0ns3f")
-texture_over = ExtResource("4_j58wj")
-texture_progress = ExtResource("5_y1fie")
-
 [node name="ItemSpawner" type="Node2D" parent="."]
 script = ExtResource("6_j0d1v")
 pickup_scene = ExtResource("7_kmnqn")
@@ -18513,15 +18492,3 @@ autostart = true
 
 [node name="TrashSpawner" parent="." instance=ExtResource("8_dudxk")]
 position = Vector2(21, -24)
-
-[node name="Player" parent="." groups=["player1"] instance=ExtResource("10_y1fie")]
-position = Vector2(-170, 79)
-collision_layer = 0
-
-[node name="OxygenTimer2" type="Timer" parent="Player"]
-wait_time = 2.0
-autostart = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
-position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_j58wj")

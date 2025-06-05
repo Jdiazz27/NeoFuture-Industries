@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://njevp4wfsxkm"]
+[gd_scene load_steps=13 format=4 uid="uid://njevp4wfsxkm"]
 
 [ext_resource type="Script" uid="uid://cfgxvfm3c5c70" path="res://Scenes/niveles/scene_3_2d.gd" id="1_ra2y4"]
 [ext_resource type="Texture2D" uid="uid://by46xd24ty52v" path="res://Resources/UI/images/image 2.png" id="1_xficr"]
 [ext_resource type="Texture2D" uid="uid://cxt0otopapm66" path="res://Resources/UI/images/image 3.png" id="2_mtb8k"]
 [ext_resource type="AudioStream" uid="uid://d0et07uru83" path="res://Assets/music/264900__speedenza__desolate-wasteland-background.mp3" id="3_x355d"]
-[ext_resource type="PackedScene" uid="uid://r28xvdwao1ik" path="res://Scenes/Players/player.tscn" id="4_ra2y4"]
 [ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scripts/item_spawner.gd" id="8_hul6b"]
 [ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/items/pickup_item.tscn" id="9_neyhu"]
 [ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/items/trash_spawner.tscn" id="10_pd53p"]
@@ -14379,16 +14378,6 @@ tile_set = SubResource("TileSet_xe336")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_x355d")
 autoplay = true
-
-[node name="Player" parent="." groups=["player1"] instance=ExtResource("4_ra2y4")]
-position = Vector2(-384, 116)
-platform_wall_layers = 1
-
-[node name="OxygenTimer2" type="Timer" parent="Player"]
-wait_time = 2.0
-autostart = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ItemSpawner" type="Node2D" parent="."]
 script = ExtResource("8_hul6b")

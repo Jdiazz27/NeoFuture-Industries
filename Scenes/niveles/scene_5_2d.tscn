@@ -1,12 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://sgtsc18xa32h"]
+[gd_scene load_steps=11 format=4 uid="uid://sgtsc18xa32h"]
 
 [ext_resource type="Script" uid="uid://dvl5cka8i4252" path="res://Scenes/niveles/scene_5_2d.gd" id="1_4xucx"]
 [ext_resource type="Texture2D" uid="uid://kjfcdvtij02h" path="res://Resources/UI/images/image 5.png" id="1_5jgy7"]
 [ext_resource type="AudioStream" uid="uid://d0et07uru83" path="res://Assets/music/264900__speedenza__desolate-wasteland-background.mp3" id="3_2hw3a"]
-[ext_resource type="PackedScene" uid="uid://r28xvdwao1ik" path="res://Scenes/Players/player.tscn" id="4_r0lxg"]
-[ext_resource type="Texture2D" uid="uid://bfrqauowb6fxu" path="res://Scenes/Players/empty_bar.png" id="5_5iavv"]
-[ext_resource type="Texture2D" uid="uid://75qm88ytsu72" path="res://Scenes/Players/oxygen_bar.png" id="6_dhms0"]
-[ext_resource type="Texture2D" uid="uid://brj28ixuk15md" path="res://Scenes/Players/complete_bar.png" id="7_6jvk4"]
 [ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scripts/item_spawner.gd" id="8_3ndoy"]
 [ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/items/pickup_item.tscn" id="9_ehrps"]
 [ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/items/trash_spawner.tscn" id="10_qo34f"]
@@ -12329,28 +12325,6 @@ tile_set = SubResource("TileSet_g8vvq")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_2hw3a")
 autoplay = true
-
-[node name="Player" parent="." groups=["player1"] instance=ExtResource("4_r0lxg")]
-position = Vector2(-252, 194)
-scale = Vector2(2, 2)
-
-[node name="OxygenTimer2" type="Timer" parent="Player"]
-wait_time = 2.0
-autostart = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="oxygenBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 10.0
-offset_top = 11.0
-offset_right = 483.0
-offset_bottom = 171.0
-scale = Vector2(0.4, 0.4)
-max_value = 40.0
-value = 40.0
-texture_under = ExtResource("5_5iavv")
-texture_over = ExtResource("6_dhms0")
-texture_progress = ExtResource("7_6jvk4")
 
 [node name="ItemSpawner" type="Node2D" parent="."]
 script = ExtResource("8_3ndoy")
