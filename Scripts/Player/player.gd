@@ -68,5 +68,5 @@ func die():
 
 func increase_oxygen(amount: int):
 	oxygen += amount
-	oxygen = clamp(oxygen, 0, 40)
+	oxygen = clamp(oxygen, 0, 35)
 	oxygenBar.value = oxygen

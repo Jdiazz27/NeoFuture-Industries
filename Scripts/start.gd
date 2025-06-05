@@ -6,7 +6,7 @@ func _input(event):
 			# Cambiar a modo ventana
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			# Ajustar tamaño de la ventana (por ejemplo, 800x600)
-			DisplayServer.window_set_size(Vector2i(800, 600))
+			DisplayServer.window_set_size(Vector2i(1000, 700))
 			
 var ListaEnlazada = preload("res://Scripts/ListaEnlazada.gd")
 var nodo = preload("res://Scripts/nodoMultiple.gd")
