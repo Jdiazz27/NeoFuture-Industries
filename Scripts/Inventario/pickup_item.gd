@@ -4,7 +4,7 @@ class_name PickUpItem
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @export var stacks: int = 1
-@export var oxygen_restore: int = 10
+@export var oxygen_restore: int = 15
 @export var inventory_item: InventoryItem
 
 func _ready() -> void:

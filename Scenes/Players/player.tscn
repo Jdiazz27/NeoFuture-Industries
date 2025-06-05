@@ -1052,6 +1052,7 @@ limit_top = -160
 limit_right = 245
 limit_bottom = 280
 
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 8
 

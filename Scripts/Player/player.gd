@@ -58,7 +58,7 @@ func _ready():
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is PickUpItem:
-		main.add("monedas_list", "moneda")
+		main.add("oxigeno_list", "moneda")
 		area.queue_free()
 
 func _on_oxygen_timer_timeout() -> void:

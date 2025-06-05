@@ -16,45 +16,46 @@ var ListaEnlazada = preload("res://Scripts/ListaEnlazada.gd")
 var nodo = preload("res://Scripts/nodoMultiple.gd")
 var partida = ListaEnlazada.new()
 
-var oxigeno_list: ListaEnlazada
+var monedas_list: ListaEnlazada
 var enemigos_list: ListaEnlazada
 var basura_list: ListaEnlazada
 var puntaje_list: ListaEnlazada
 
-var nOxigeno = 0
+var nMonedas = 0
 var nEnemigos = 0
 var nBasura = 0
 var niveles = [
-	"res://Scenes/niveles/start.tscn",
-	"res://Scenes/niveles/scene_2_2d.tscn"
+	"res://Scenes/niveles/scene_2_2d.tscn",
+	"res://Scenes/niveles/scene_3_2d.tscn"
 ]
 var nivel_actual = 0
 
 func _ready():
-	var oxigenos = nodo.new("Oxigenos")
+	
+	var monedas = nodo.new("Monedas")
 	var enemigos = nodo.new("Enemigos")
 	var basura = nodo.new("Basura")
 	var puntaje = nodo.new("Puntaje")
 
-	partida.agregar_al_final(oxigenos)
+	partida.agregar_al_final(monedas)
 	partida.agregar_al_final(enemigos)
 	partida.agregar_al_final(basura)
 	partida.agregar_al_final(puntaje)
 	
-	oxigeno_list = ListaEnlazada.new()
+	monedas_list = ListaEnlazada.new()
 	enemigos_list = ListaEnlazada.new()
 	basura_list = ListaEnlazada.new()
 	puntaje_list = ListaEnlazada.new()
 
-	partida.agregar_hijo(oxigenos, oxigeno_list)
+	partida.agregar_hijo(monedas, monedas_list)
 	partida.agregar_hijo(enemigos, enemigos_list)
 	partida.agregar_hijo(basura, basura_list)
 	partida.agregar_hijo(puntaje, puntaje_list)
 
 func add(list:String, data:String):
 	if data == "moneda":
-		data = data + str(nOxigeno)
-		nOxigeno = nOxigeno + 1
+		data = data + str(nMonedas)
+		nMonedas = nMonedas + 1
 	elif data == "enemigo":
 		data = data + str(nEnemigos)
 		nEnemigos = nEnemigos + 1
@@ -64,8 +65,8 @@ func add(list:String, data:String):
 		
 	var new_node = nodo.new(data)
 	match list:
-		"oxigeno_list":
-			oxigeno_list.agregar_al_final(new_node)
+		"monedas_list":
+			monedas_list.agregar_al_final(new_node)
 		"enemigos_list":
 			enemigos_list.agregar_al_final(new_node)
 		"basura_list":
@@ -74,8 +75,8 @@ func add(list:String, data:String):
 			puntaje_list.agregar_al_final(new_node)
 
 func getData():
-	var puntaje = (nEnemigos * 50) + (nOxigeno * 25)
-	return [puntaje, nEnemigos, nOxigeno, nBasura]
+	var puntaje = (nEnemigos * 50) + (nMonedas * 25)
+	return [puntaje, nEnemigos, nMonedas, nBasura]
 
 func cambiar_escena():
 	nivel_actual += 1

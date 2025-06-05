@@ -1,0 +1,131 @@
+[gd_scene load_steps=9 format=3 uid="uid://b14heur7x5wut"]
+
+[ext_resource type="Texture2D" uid="uid://cd1ifwtxal4l3" path="res://Resources/UI/fondo2.jpg" id="1_htw3k"]
+[ext_resource type="Script" uid="uid://d3y3xodamho4c" path="res://Scenes/UI/inicio.gd" id="1_na7gw"]
+[ext_resource type="FontFile" uid="uid://cg1dfamgo04a2" path="res://Resources/UI/Pixeled.ttf" id="2_7e6sy"]
+[ext_resource type="Script" uid="uid://mkg8fs0kn2l3" path="res://Scripts/UI/iniciar.gd" id="3_htw3k"]
+[ext_resource type="FontFile" uid="uid://cpwlj11p616fw" path="res://Resources/UI/Jersey15-Regular.ttf" id="4_xagyt"]
+[ext_resource type="Script" uid="uid://bocdv2dedj2iu" path="res://Scenes/UI/volver.gd" id="6_efgu3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e6sy"]
+bg_color = Color(0.235294, 0.0745098, 0.0352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.909804, 0.470588, 0.145098, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbg4a"]
+bg_color = Color(0.235294, 0.0745098, 0.0352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.909804, 0.470588, 0.145098, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_na7gw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -3.0
+offset_right = 4.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_htw3k")
+expand_mode = 1
+
+[node name="iniciar" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 415.0
+offset_right = 303.0
+offset_bottom = 468.0
+theme_override_colors/font_color = Color(0.909804, 0.470588, 0.145098, 1)
+theme_override_fonts/font = ExtResource("2_7e6sy")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_7e6sy")
+text = "INICIAR SESIÓN "
+script = ExtResource("3_htw3k")
+
+[node name="Registro" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -498.0
+offset_top = 42.0
+offset_right = 186.0
+offset_bottom = 163.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.909804, 0.470588, 0.145098, 1)
+theme_override_fonts/font = ExtResource("4_xagyt")
+theme_override_font_sizes/font_size = 120
+text = "INICIO DE SESIÓN"
+
+[node name="user" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 182.0
+offset_right = 315.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 30
+text = "Ingresa tu usuario:"
+
+[node name="userdata" type="LineEdit" parent="TextureRect"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 235.0
+offset_right = 304.0
+offset_bottom = 266.0
+
+[node name="passdata" type="LineEdit" parent="TextureRect"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 349.0
+offset_right = 308.0
+offset_bottom = 380.0
+
+[node name="contraseña" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 296.0
+offset_right = 372.0
+offset_bottom = 338.0
+theme_override_font_sizes/font_size = 30
+text = "Ingresa tu contraseña:"
+
+[node name="volver" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 416.0
+offset_right = 522.0
+offset_bottom = 473.0
+theme_override_colors/font_color = Color(0.908687, 0.470145, 0.144625, 1)
+theme_override_fonts/font = ExtResource("2_7e6sy")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_vbg4a")
+text = "VOLVER"
+script = ExtResource("6_efgu3")
+
+[connection signal="pressed" from="TextureRect/iniciar" to="TextureRect/iniciar" method="_on_pressed"]
+[connection signal="pressed" from="TextureRect/volver" to="TextureRect/volver" method="_on_pressed"]

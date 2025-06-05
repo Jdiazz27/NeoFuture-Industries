@@ -19,14 +19,11 @@ func agregar_linea_csv(ruta: String, nueva_linea: String) -> void:
 	if archivo_escritura:
 		archivo_escritura.store_string(contenido)
 		archivo_escritura.close()
-		print("Línea agregada a:", ruta)
-	else:
-		print("No se pudo abrir el archivo para escribir.")
 		
 func crear_csv(ruta: String):
 	var archivo := FileAccess.open(ruta, FileAccess.WRITE)
 	if archivo:
-		archivo.store_line("Partida,puntos,enemigos,monedas,basura")
+		archivo.store_line("Partida,puntos,enemigos,oxigeno,basura")
 		archivo.close()
 
 func buscarUltimaPartida() -> int:
