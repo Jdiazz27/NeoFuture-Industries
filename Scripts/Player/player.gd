@@ -47,12 +47,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is PickUpItem:
 		main.add("oxigeno_list", "moneda")
 		area.queue_free()
-	if area is TrashItem:
-		print("recogio")
-		main.add("basura_list", "basura")
-		area.queue_free()
-	print(area)
-	print(area.get_class()) 
 
 func _on_oxygen_timer_timeout() -> void:
 	if oxygen > 0:

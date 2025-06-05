@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dsi1npfr32ev1" path="res://Scripts/UI/iniciarse.gd" id="5_ytr4m"]
 [ext_resource type="Script" uid="uid://de62a56emm2du" path="res://Scenes/UI/salir.gd" id="7_rb4ur"]
 [ext_resource type="Texture2D" uid="uid://mq2mgoh7talq" path="res://Resources/UI/images/signo.png" id="8_4twqa"]
-[ext_resource type="Script" uid="uid://cpfh3cjhl34l4" path="res://Scenes/UI/manual_button.gd" id="8_q0i46"]
+[ext_resource type="Script" path="res://Scenes/UI/manual_button.gd" id="8_q0i46"]
 [ext_resource type="Texture2D" uid="uid://b31vx5frcvoe4" path="res://Resources/UI/manual/manual_qr.jpeg" id="11_s5hva"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
