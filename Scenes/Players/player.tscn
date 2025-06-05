@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dkur4lcv6q43f" path="res://Scripts/Player/player.gd" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://cvq0a8yv4unto" path="res://Scripts/Player/animation_controller.gd" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://8vet366ooj1o" path="res://Assets/Sprites/IndianaJones.png" id="4_3smsa"]
-[ext_resource type="Script" uid="uid://ckk4aj2u1k2jf" path="res://Scripts/Inventario/inventory.gd" id="6_3smsa"]
 [ext_resource type="Shape2D" uid="uid://cr2qwjwx3kt7j" path="res://Resources/Player/player_collsion_shape.tres" id="7_3smsa"]
 [ext_resource type="PackedScene" uid="uid://c1lk80o6qqv45" path="res://Scenes/weapons/bat.tscn" id="9_gfkdj"]
 [ext_resource type="Texture2D" uid="uid://bfrqauowb6fxu" path="res://Scenes/Players/empty_bar.png" id="9_xxqkx"]
@@ -883,8 +882,6 @@ limit_top = -160
 limit_right = 245
 limit_bottom = 280
 
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource("6_3smsa")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

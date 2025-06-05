@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://75qm88ytsu72" path="res://Scenes/Players/oxygen_bar.png" id="6_53la0"]
 [ext_resource type="Texture2D" uid="uid://brj28ixuk15md" path="res://Scenes/Players/complete_bar.png" id="7_l872c"]
 [ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scripts/item_spawner.gd" id="8_e3oew"]
-[ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/pickup_item.tscn" id="9_uhma0"]
-[ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/trash_spawner.tscn" id="10_mrs7v"]
+[ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/items/pickup_item.tscn" id="9_uhma0"]
+[ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/items/trash_spawner.tscn" id="10_mrs7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvdfc"]
 texture = ExtResource("1_8wsum")
@@ -8238,7 +8238,7 @@ autoplay = true
 position = Vector2(-92, 130)
 scale = Vector2(2, 2)
 
-[node name="OxygenTimer" type="Timer" parent="Player"]
+[node name="OxygenTimer2" type="Timer" parent="Player"]
 wait_time = 2.0
 autostart = true
 
@@ -8266,5 +8266,3 @@ autostart = true
 
 [node name="TrashSpawner" parent="." instance=ExtResource("10_mrs7v")]
 position = Vector2(0, 46)
-
-[connection signal="timeout" from="Player/OxygenTimer" to="Player" method="_on_oxygen_timer_timeout"]

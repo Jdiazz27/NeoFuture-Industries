@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://75qm88ytsu72" path="res://Scenes/Players/oxygen_bar.png" id="4_j58wj"]
 [ext_resource type="Texture2D" uid="uid://brj28ixuk15md" path="res://Scenes/Players/complete_bar.png" id="5_y1fie"]
 [ext_resource type="Script" uid="uid://bdwnfv2qg3rb1" path="res://Scripts/item_spawner.gd" id="6_j0d1v"]
-[ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/pickup_item.tscn" id="7_kmnqn"]
-[ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/trash_spawner.tscn" id="8_dudxk"]
+[ext_resource type="PackedScene" uid="uid://lfetd7j8elsp" path="res://Scenes/items/pickup_item.tscn" id="7_kmnqn"]
+[ext_resource type="PackedScene" uid="uid://b06w3ekffiymv" path="res://Scenes/items/trash_spawner.tscn" id="8_dudxk"]
 [ext_resource type="PackedScene" uid="uid://r28xvdwao1ik" path="res://Scenes/Players/player.tscn" id="10_y1fie"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsu6p"]
@@ -18518,12 +18518,10 @@ position = Vector2(21, -24)
 position = Vector2(-170, 79)
 collision_layer = 0
 
-[node name="OxygenTimer" type="Timer" parent="Player"]
+[node name="OxygenTimer2" type="Timer" parent="Player"]
 wait_time = 2.0
 autostart = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_j58wj")
-
-[connection signal="timeout" from="Player/OxygenTimer" to="Player" method="_on_oxygen_timer_timeout"]

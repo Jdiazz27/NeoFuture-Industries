@@ -7,6 +7,7 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var oxygen_bar: TextureProgressBar = $CanvasLayer/oxygenBar
 @onready var oxygen_timer: Timer = $OxygenTimer
+@onready var oxygenBar: TextureProgressBar = $CanvasLayer/oxygenBar
 
 var main
 var isAttacking: bool = false
@@ -44,8 +45,14 @@ func _ready():
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is PickUpItem:
-		main.add("monedas_list", "moneda")
+		main.add("oxigeno_list", "moneda")
 		area.queue_free()
+	if area is TrashItem:
+		print("recogio")
+		main.add("basura_list", "basura")
+		area.queue_free()
+	print(area)
+	print(area.get_class()) 
 
 func _on_oxygen_timer_timeout() -> void:
 	if oxygen > 0:

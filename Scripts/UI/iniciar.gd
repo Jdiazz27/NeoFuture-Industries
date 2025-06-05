@@ -37,4 +37,4 @@ func _on_pressed() -> void:
 	archivo.close()
 
 	if inicio_exitoso:
-		get_tree().change_scene_to_file("res://Scenes/start.tscn")
+		get_tree().change_scene_to_file("res://Scenes/niveles/start.tscn")
