@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://06wo6b0fl7m4" path="res://Resources/enemys/mutantPlant/mutantPlantSheet.png" id="1_br14v"]
 [ext_resource type="Texture2D" uid="uid://b68xih1ri40ch" path="res://Resources/enemys/dissapear.png" id="4_mih6a"]
 [ext_resource type="PackedScene" uid="uid://bu0gqe7u15qqb" path="res://Scenes/hurt_box.tscn" id="4_vh5uu"]
-[ext_resource type="Script" uid="uid://dr7ouxmuh1qn2" path="res://Scenes/weapons/hit_box.gd" id="5_l61wx"]
+[ext_resource type="Script" path="res://Scenes/weapons/hit_box.gd" id="5_l61wx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oms34"]
 atlas = ExtResource("1_br14v")
@@ -352,7 +352,6 @@ shape = SubResource("RectangleShape2D_l61wx")
 position = Vector2(0, 2)
 scale = Vector2(2.17661, 2.39418)
 script = ExtResource("5_l61wx")
-metadata/_custom_type_script = "uid://dr7ouxmuh1qn2"
 
 [node name="hitBoxCollision" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_jgwba")
