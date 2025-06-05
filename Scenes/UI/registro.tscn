@@ -33,8 +33,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -7.0
-offset_top = 7.0
-offset_right = -7.0
+offset_top = -1.0
+offset_right = 1.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -102,6 +102,7 @@ theme_override_font_sizes/font_size = 30
 text = "Crea tu contraseña:"
 
 [node name="volver" type="Button" parent="TextureRect"]
+layout_mode = 0
 offset_left = 358.0
 offset_top = 416.0
 offset_right = 522.0

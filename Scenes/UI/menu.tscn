@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwsh0to0q0qd6"]
+[gd_scene load_steps=14 format=3 uid="uid://cwsh0to0q0qd6"]
 
 [ext_resource type="Texture2D" uid="uid://cd1ifwtxal4l3" path="res://Resources/UI/fondo2.jpg" id="1_ouk20"]
 [ext_resource type="Script" uid="uid://qxjaoklyw67l" path="res://Scenes/UI/menu.gd" id="1_ugp1d"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://ddj1l4aa6hwqo" path="res://Scripts/UI/registrarse.gd" id="4_4hy44"]
 [ext_resource type="Script" uid="uid://dsi1npfr32ev1" path="res://Scripts/UI/iniciarse.gd" id="5_ytr4m"]
 [ext_resource type="Script" uid="uid://de62a56emm2du" path="res://Scenes/UI/salir.gd" id="7_rb4ur"]
+[ext_resource type="Texture2D" uid="uid://mq2mgoh7talq" path="res://Resources/UI/images/signo.png" id="8_4twqa"]
+[ext_resource type="Script" uid="uid://cpfh3cjhl34l4" path="res://Scenes/UI/manual_button.gd" id="8_q0i46"]
+[ext_resource type="Texture2D" uid="uid://b31vx5frcvoe4" path="res://Resources/UI/manual/manual_qr.jpeg" id="11_s5hva"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
 bg_color = Color(0.235294, 0.0745098, 0.0352941, 1)
@@ -67,6 +70,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -3.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ouk20")
@@ -164,6 +169,63 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
 text = "SALIR"
 script = ExtResource("7_rb4ur")
 
+[node name="ManualButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_top = 3.0
+offset_right = -22.0
+offset_bottom = 28.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+icon_alignment = 2
+vertical_icon_alignment = 0
+script = ExtResource("8_q0i46")
+
+[node name="icon_manual" type="TextureRect" parent="ManualButton"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.5
+offset_top = -1.0
+offset_right = 5.5
+offset_bottom = 29.0
+grow_horizontal = 0
+texture = ExtResource("8_4twqa")
+expand_mode = 1
+
+[node name="botonpanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -446.0
+offset_right = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="manual_qr" type="TextureRect" parent="botonpanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -205.0
+offset_right = 193.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_s5hva")
+expand_mode = 1
+
 [connection signal="pressed" from="VBoxContainer/registrarse" to="VBoxContainer/registrarse" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/iniciar" to="VBoxContainer/iniciar" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/salir" to="VBoxContainer/salir" method="_on_pressed"]
+[connection signal="pressed" from="ManualButton" to="botonpanel" method="_on_manual_button_pressed"]
