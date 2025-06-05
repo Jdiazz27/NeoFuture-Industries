@@ -25,12 +25,13 @@ var nMonedas = 0
 var nEnemigos = 0
 var nBasura = 0
 var niveles = [
-	"res://Scenes/niveles/start.tscn",
-	"res://Scenes/niveles/scene_2_2d.tscn"
+	"res://Scenes/niveles/scene_2_2d.tscn",
+	"res://Scenes/niveles/scene_3_2d.tscn"
 ]
 var nivel_actual = 0
 
 func _ready():
+	
 	var monedas = nodo.new("Monedas")
 	var enemigos = nodo.new("Enemigos")
 	var basura = nodo.new("Basura")
